@@ -1,5 +1,5 @@
 <h1  align="center">
-<img  alt="Ecoleta"  title="#NWL"  src="./.github/logo.png"  width="200px" />
+<img  alt="Ecoleta"  title="#NWL"  src="./.github/logo.png"  width="100px" />
 </h1>
 
 <p  align="center">
