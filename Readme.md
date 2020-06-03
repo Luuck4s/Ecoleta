@@ -67,7 +67,7 @@
 
 Você precisa clonar o repositório, e pode fazer isso digitando em seu terminal `$ git clone https://github.com/Luuck4s/Ecoleta.git`.
  
-### :satellite: Api
+### :satellite: API
 
 Logo após clonar o repositório navegue ate a pasta da Api `$ cd api/` e execute o comando `yarn install` ou `npm install`.
 
