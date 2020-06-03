@@ -31,12 +31,16 @@
 
 - [NodeJs;](https://nodejs.org/en/)
 
+- [TypeScript;](https://www.typescriptlang.org/)
+
 - [Express;](https://www.express.com/)
 
 
 **:computer: Web**
 
 - [React Js;](https://pt-br.reactjs.org/)
+
+- [TypeScript;](https://www.typescriptlang.org/)
 
 - [Styled-Components;](https://styled-components.com/)
 
@@ -45,6 +49,8 @@
 **:iphone: Mobile**
 
 - [React Native;](https://facebook.github.io/react-native/)
+
+- [TypeScript;](https://www.typescriptlang.org/)
 
 - [Expo;](https://expo.io/)
 
@@ -65,7 +71,9 @@ Você precisa clonar o repositório, e pode fazer isso digitando em seu terminal
 
 Logo após clonar o repositório navegue ate a pasta da Api `$ cd api/` e execute o comando `yarn install` ou `npm install`.
 
-Logo após seguir tudo que foi feito acima pode executar o comando `yarn start` ou `npm start` e deverá aparecer algo parecido com essa mensagem:
+Depois das de terminar de instalar as dependências, execute o comando `yarn knex:migrate` ou `npm run knex:migrate` para realizar a criação das migrations, em sequência execute `yarn knex:seed` ou `npm run knex:seed` para realizar a criação das seeds.
+
+Logo após seguir tudo que foi feito acima pode executar o comando `yarn dev` ou `npm run dev` e deverá aparecer algo parecido com essa mensagem:
 
 ```
 [SERVER] Server is running in port 3333
