@@ -5,3 +5,7 @@
 #Database 
 
 */*/*/database.sqlite
+
+#Expo
+
+mobile/.expo/*

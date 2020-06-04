@@ -99,23 +99,6 @@ export const Select = styled.select`
   color: #6c6c80;
 `;
 
-// #page-create-point form .field :disabled {
-//   cursor: not-allowed;
-// }
-
-// #page-create-point form .field-check {
-//   flex-direction: row;
-//   align-items: center;
-// }
-
-// #page-create-point form .field-check input[type=checkbox] {
-//   background: #F0F0F5;
-// }
-
-// #page-create-point form .field-check label {
-//   margin: 0 0 0 8px;
-// }
-
 export const ListGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

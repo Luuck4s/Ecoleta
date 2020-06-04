@@ -52,6 +52,8 @@
 
 - [TypeScript;](https://www.typescriptlang.org/)
 
+- [Styled-Components;](https://styled-components.com/)
+
 - [Expo;](https://expo.io/)
 
 - [Axios;](https://github.com/axios/axios)
@@ -86,6 +88,13 @@ Vá para pasta `$ cd web/` e execute `yarn install` ou `npm install`.
 
 Depois das de terminar de instalar as dependências, execute o comando `yarn start` ou `npm run start`.
 
+
+
+### :iphone: Mobile
+
+Vá para pasta `$ cd mobile/` e execute `yarn install` ou `npm install`.
+
+Depois das de terminar de instalar as dependências, execute o comando `yarn start` ou `npm run start`.
 
 
 --- 
