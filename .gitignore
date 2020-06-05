@@ -9,3 +9,7 @@
 #Expo
 
 mobile/.expo/*
+
+# Uploads 
+*/uploads/*
+!*/uploads/*.svg

@@ -61,8 +61,8 @@
 
 ## 💜 Preview
 
-<p align="center">
-🚧 Em desenvolvimento 🚧
+<p  align="center">
+	<img  alt="Preview" title="Topzera"  src=".github/preview.png"  width="100%">
 </p>
 
 ## 🤠 Getting Started
