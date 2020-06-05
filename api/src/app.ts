@@ -1,5 +1,6 @@
 import express from "express";
-import cors from 'cors';
+import cors from "cors";
+import { errors } from "celebrate";
 
 import items from "./routes/items";
 import points from "./routes/points";
@@ -13,5 +14,7 @@ app.use(express.json());
 app.use("/items", items);
 app.use("/points", points);
 app.use("/uploads", uploads);
+
+app.use(errors());
 
 export default app;

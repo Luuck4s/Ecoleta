@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import { LeafletMouseEvent } from "leaflet";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import api from "../../services/api";
 
@@ -26,6 +26,7 @@ import {
 } from "./styles";
 
 import Header from "../../components/Header";
+import Dropzone from "../../components/Dropzone";
 
 interface Item {
   id: number;
@@ -58,6 +59,7 @@ const CreatePoint: React.FC = () => {
     0,
     0,
   ]);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -95,7 +97,7 @@ const CreatePoint: React.FC = () => {
     };
 
     fetchUfs();
-  });
+  }, []);
 
   useEffect(() => {
     if (selectedUf === "0") {
@@ -157,29 +159,34 @@ const CreatePoint: React.FC = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      whatsapp,
-      uf,
-      city,
-      latitude,
-      longitude,
-      items,
-    };
-    
-    await api.post('/points', data);
+    const data = new FormData();
 
-    history.push('/');
+    data.append("name", name);
+    data.append("email", email);
+    data.append("whatsapp", whatsapp);
+    data.append("uf", uf);
+    data.append("city", city);
+    data.append("latitude", String(latitude));
+    data.append("longitude", String(longitude));
+    data.append("items", items.join(","));
+
+    if (selectedFile) {
+      data.append("image", selectedFile);
+    }
+
+    await api.post("/points", data);
+
+    history.push("/");
   }
 
   return (
     <Container>
       <Header backToHome />
       <Form onSubmit={handleSubmit}>
-        <Title>
-          Cadastro do <br /> ponto de coleta
-        </Title>
+        <Title>Cadastro do</Title>
+        <Title>ponto de coleta</Title>
+
+        <Dropzone onFileUploaded={setSelectedFile} />
 
         <Fieldset>
           <Legend>

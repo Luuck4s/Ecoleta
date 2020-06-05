@@ -53,7 +53,7 @@ const Home = () => {
     };
 
     fetchUfs();
-  });
+  }, []);
 
   useEffect(() => {
     if (selectedUf === "0") {

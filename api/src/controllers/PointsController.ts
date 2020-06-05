@@ -1,6 +1,7 @@
-import { Request, Response, request } from "express";
+import { Request, Response } from "express";
 
 import knex from "../database/connection";
+import { serializedArray, serializedObject } from "../utils/serialized";
 
 class PointsControler {
   async index(req: Request, res: Response) {
@@ -18,7 +19,9 @@ class PointsControler {
       .distinct()
       .select("points.*");
 
-    return res.json(points);
+    const serializedPoints = serializedArray(points);
+
+    return res.json(serializedPoints);
   }
 
   async create(req: Request, res: Response) {
@@ -36,8 +39,7 @@ class PointsControler {
     const trx = await knex.transaction();
 
     const point = {
-      image:
-        "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      image: req.file.filename,
       name,
       email,
       whatsapp,
@@ -49,12 +51,15 @@ class PointsControler {
 
     const [point_id] = await trx("points").insert(point);
 
-    const pointItems = items.map((item_id: number) => {
-      return {
-        item_id,
-        point_id,
-      };
-    });
+    const pointItems = items
+      .split(",")
+      .map((item: string) => Number(item.trim()))
+      .map((item_id: number) => {
+        return {
+          item_id,
+          point_id,
+        };
+      });
 
     await trx("point_items").insert(pointItems);
 
@@ -79,7 +84,9 @@ class PointsControler {
       return res.status(400).json({ message: "Point not found." });
     }
 
-    return res.json({ point, items });
+    const serializedPoint = serializedObject(point);
+
+    return res.json({ point: serializedPoint, items });
   }
 }
 
